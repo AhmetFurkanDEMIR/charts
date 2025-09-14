@@ -1,0 +1,48 @@
+replicaCount: 1
+
+image:
+  repository: apache/ranger
+  tag: "2.7.0"
+  pullPolicy: IfNotPresent
+
+ranger:
+  adminPassword: "StrongPass58"
+
+service:
+  type: ClusterIP # or LoadBalancer, NodePort
+  port: 6080
+  externalIPs: []
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 1024Mi
+  requests:
+    cpu: 250m
+    memory: 512Mi
+
+postgresql:
+  enabled: true
+  auth:
+    postgresPassword: postgrespass
+    username: ranger
+    password: rangerpass
+    database: rangerdb
+  primary:
+    service:
+      type: ClusterIP # or LoadBalancer, NodePort
+      port: 5432
+      externalIPs: []
+    resources:
+      limits:
+        cpu: 500m
+        memory: 1024Mi
+      requests:
+        cpu: 250m
+        memory: 512Mi
+    persistence:
+      enabled: true
+      storageClass: "" # Use default storage class
+      size: 8Gi
+      accessModes:
+        - ReadWriteOnce

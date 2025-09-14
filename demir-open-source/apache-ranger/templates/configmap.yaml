@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "apache-ranger.fullname" . }}-config
+data:
+  install.properties: |-
+    PYTHON_COMMAND_INVOKER=python3
+    RANGER_ADMIN_LOG_DIR=/var/log/ranger
+    RANGER_PID_DIR_PATH=/var/run/ranger
+    DB_FLAVOR=POSTGRES
+    SQL_CONNECTOR_JAR=/usr/share/java/postgresql.jar
+    RANGER_ADMIN_LOGBACK_CONF_FILE=/opt/ranger/admin/ews/webapp/WEB-INF/classes/conf/logback.xml
+
+    db_root_user=postgres
+    db_root_password={{ .Values.postgresql.auth.postgresPassword }}
+    db_host={{ .Release.Name }}-postgresql
+
+    db_name={{ .Values.postgresql.auth.database }}
+    db_user={{ .Values.postgresql.auth.username }}
+    db_password={{ .Values.postgresql.auth.password }}
+
+    postgres_core_file=db/postgres/optimized/current/ranger_core_db_postgres.sql
+    postgres_audit_file=db/postgres/xa_audit_db_postgres.sql
+    mysql_core_file=db/mysql/optimized/current/ranger_core_db_mysql.sql
+    mysql_audit_file=db/mysql/xa_audit_db.sql
+
+    rangerAdmin_password={{ .Values.ranger.adminPassword }}
+    rangerTagsync_password={{ .Values.ranger.adminPassword }}
+    rangerUsersync_password={{ .Values.ranger.adminPassword }}
+    keyadmin_password={{ .Values.ranger.adminPassword }}
+
+    audit_store=solr
+    audit_solr_urls=http://ranger-solr:8983/solr/ranger_audits
+    audit_solr_collection_name=ranger_audits
+
+    audit_elasticsearch_urls=
+    audit_elasticsearch_port=9200
+    audit_elasticsearch_protocol=http
+    audit_elasticsearch_user=elastic
+    audit_elasticsearch_password=elasticsearch
+    audit_elasticsearch_index=ranger_audits
+    audit_elasticsearch_bootstrap_enabled=true
+
+    policymgr_external_url=http://ranger-admin:6080
+    policymgr_http_enabled=true
+
+    unix_user=ranger
+    unix_user_pwd=ranger
+    unix_group=ranger
+
+    oracle_core_file=
+    sqlserver_core_file=
+    sqlanywhere_core_file=
+    cred_keystore_filename=
+
+    XAPOLICYMGR_DIR=$PWD
+    app_home=$PWD/ews/webapp
+    TMPFILE=$PWD/.fi_tmp
+    LOGFILE=$PWD/logfile
+    LOGFILES="$LOGFILE"
+
+    JAVA_BIN='java'
+    JAVA_VERSION_REQUIRED='1.8'
+
+    ranger_admin_max_heap_size=1g
+    PATCH_RETRY_INTERVAL=120
+    STALE_PATCH_ENTRY_HOLD_TIME=10
+
+    hadoop_conf=
+    authentication_method=UNIX

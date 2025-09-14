@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "apache-ranger.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "apache-ranger.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "apache-ranger.name" . }}
+    spec:
+      containers:
+        - name: {{ include "apache-ranger.name" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 6080
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: ranger-config
+              mountPath: /opt/ranger/admin/install.properties
+              subPath: install.properties
+      volumes:
+        - name: ranger-config
+          configMap:
+            name: {{ include "apache-ranger.fullname" . }}-config

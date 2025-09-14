@@ -1,0 +1,10 @@
+apiVersion: v2
+name: apache-ranger
+description: A Helm chart for Apache Ranger
+type: application
+version: 0.1.0
+appVersion: "2.7.0"
+dependencies:
+  - name: postgresql
+    version: 13.2.27
+    repository: https://charts.bitnami.com/bitnami
