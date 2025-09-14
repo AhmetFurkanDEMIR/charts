@@ -40,7 +40,6 @@ entries:
       keys, joins, views, triggers and stored procedures.
     digest: 9e3ab42d8197aac72722a3557d1f8ed04adc0fd5768e1985569bc73eaddc3b9c
     home: https://bitnami.com
-    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-220x234.png
     keywords:
     - postgresql
     - postgres
