@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "iceberg-rest.fullname" . }}
+  labels:
+    app: {{ include "iceberg-rest.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "iceberg-rest.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "iceberg-rest.name" . }}
+    spec:
+      containers:
+        - name: iceberg-rest
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8181
+          env:
+            # S3 Secrets from s3-secrets
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: s3-secrets
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: s3-secrets
+                  key: AWS_SECRET_ACCESS_KEY
+                  
+            # PostgreSQL connection details
+            - name: CATALOG_JDBC_USER
+              value: '{{ .Values.postgresql.auth.username }}'
+            - name: CATALOG_JDBC_PASSWORD
+              value: '{{ .Values.postgresql.auth.password }}'
+
+            - name: CATALOG_URI
+              value: 'jdbc:postgresql://{{ printf "%s-postgresql" .Release.Name }}:5432/{{ .Values.postgresql.auth.database }}'
+
+            # Other environment variables from values.yaml
+            {{- range $key, $val := .Values.env.values }}
+              {{- if and (ne $key "AWS_ACCESS_KEY_ID") (ne $key "AWS_SECRET_ACCESS_KEY") (ne $key "CATALOG_JDBC_PASSWORD") }}
+            - name: {{ $key }}
+              value: {{ $val | quote }}
+              {{- end }}
+            {{- end }}
+
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}

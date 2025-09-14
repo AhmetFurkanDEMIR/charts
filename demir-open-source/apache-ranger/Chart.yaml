@@ -4,6 +4,12 @@ description: A Helm chart for Apache Ranger
 type: application
 version: 0.1.0
 appVersion: "2.7.0"
+
+maintainers:
+  - name: Ahmet Furkan Demir
+    email: 1ahmetfurkandemir@gmail.com
+  
+icon: https://ranger.apache.org/ranger-logo.svg
 dependencies:
   - name: postgresql
     version: 13.2.27

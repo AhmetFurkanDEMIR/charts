@@ -1,0 +1,54 @@
+replicaCount: 1
+
+image:
+  repository: ahmetfurkandemir/iceberg-rest-fixture-postgresql
+  tag: 1.10.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP # or LoadBalancer, NodePort
+  port: 8181
+  #loadBalancerIP: ""
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 2Gi
+  requests:
+    cpu: 500m
+    memory: 1Gi
+
+env:
+  secretName: s3-secrets
+  values:
+    AWS_REGION: us-east-1
+    CATALOG_WAREHOUSE: s3://iceberg-rest/
+    CATALOG_IO__IMPL: org.apache.iceberg.aws.s3.S3FileIO
+    CATALOG_S3_ENDPOINT: http://minio:9000
+    CATALOG_S3_PATH_STYLE_ACCESS: "true"
+
+postgresql:
+  enabled: true
+  auth:
+    username: iceberg
+    database: iceberg
+    postgresPassword: postgrespass
+    password: icebergpass
+  primary:
+    service:
+      type: ClusterIP # or LoadBalancer, NodePort
+      port: 5432
+      externalIPs: []
+    resources:
+      limits:
+        cpu: 500m
+        memory: 1024Mi
+      requests:
+        cpu: 250m
+        memory: 512Mi
+    persistence:
+      enabled: true
+      storageClass: "" # Use default storage class
+      size: 8Gi
+      accessModes:
+        - ReadWriteOnce

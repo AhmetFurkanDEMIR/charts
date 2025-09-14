@@ -1,0 +1,9 @@
+FROM apache/iceberg-rest-fixture:1.10.0
+
+USER root
+
+RUN curl -L https://repo1.maven.org/maven2/org/postgresql/postgresql/42.7.5/postgresql-42.7.5.jar -o /usr/lib/iceberg-rest/postgresql-42.7.5.jar
+
+USER iceberg
+
+CMD ["java", "-cp", "/usr/lib/iceberg-rest/*:iceberg-rest-adapter.jar", "org.apache.iceberg.rest.RESTCatalogServer"]

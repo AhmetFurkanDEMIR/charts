@@ -28,16 +28,10 @@ This Helm chart deploys [Apache Ranger](https://ranger.apache.org/) with a Bitna
 ## Installing the Chart
 
 ```sh
-helm dependency build apache-ranger
-helm install apache-ranger ./apache-ranger -n ranger --create-namespace
+helm repo add apache-ranger https://ahmetfurkandemir.github.io/charts/demir-open-source/apache-ranger/
+
+helm upgrade --install apache-ranger apache-ranger/apache-ranger --version 0.1.0 -n apache-ranger --create-namespace
 ```
-
-Or upgrade with:
-
-```sh
-helm upgrade --install apache-ranger ./apache-ranger -n ranger -f values.yaml
-```
-
 ---
 
 ## Configuration
@@ -143,7 +137,7 @@ postgresql:
 ## Uninstalling
 
 ```sh
-helm uninstall apache-ranger -n ranger
+helm uninstall apache-ranger -n apache-ranger
 ```
 
 ---
