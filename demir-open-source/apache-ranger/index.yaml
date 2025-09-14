@@ -3,17 +3,17 @@ entries:
   apache-ranger:
   - apiVersion: v2
     appVersion: 2.7.0
-    created: "2025-09-14T18:23:58.0914296+03:00"
+    created: "2025-09-14T18:30:20.8429811+03:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
       version: 13.2.27
     description: A Helm chart for Apache Ranger
-    digest: 9f78ace1738445db7b2e08d2f898da06e45701a82b0730314b2e1c3145f2fe1f
+    digest: 79aa575198eab25759448039a45710a96a6ebfec8d575f9869532b7eecbc4df1
     name: apache-ranger
     type: application
     urls:
-    - https://github.com/AhmetFurkanDEMIR/charts/releases/download/apache-ranger-0.1.0.tgz/apache-ranger-0.1.0.tgz
+    - apache-ranger-0.1.0.tgz
     version: 0.1.0
   postgresql:
   - annotations:
@@ -28,7 +28,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
-    created: "2025-09-14T18:23:58.0940686+03:00"
+    created: "2025-09-14T18:30:20.8452886+03:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -55,6 +55,6 @@ entries:
     sources:
     - https://github.com/bitnami/charts/tree/main/bitnami/postgresql
     urls:
-    - https://your-domain.com/charts/demir-open-source/charts/postgresql-13.2.27.tgz
+    - charts/postgresql-13.2.27.tgz
     version: 13.2.27
-generated: "2025-09-14T18:23:58.0860426+03:00"
+generated: "2025-09-14T18:30:20.8391321+03:00"
