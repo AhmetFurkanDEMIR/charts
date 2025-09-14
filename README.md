@@ -18,10 +18,11 @@ A Helm chart for deploying [Apache Ranger](https://ranger.apache.org/) on Kubern
   - Resource and service configuration.
 - **Quick Install:**
   ```sh
-  helm repo add demir-open-source <your-helm-repo-url>
-  helm install my-ranger demir-open-source/apache-ranger
+  helm repo add apache-ranger https://ahmetfurkandemir.github.io/charts/demir-open-source/apache-ranger/
+
+  helm upgrade --install apache-ranger apache-ranger/apache-ranger --version 0.1.0 -n apache-ranger --create-namespace
   ```
-- **Documentation:** See [`apache-ranger/README.md`](./apache-ranger/README.md) for full usage and configuration.
+- **Documentation:** See [`apache-ranger/README.md`](demir-open-source/apache-ranger/README.md) for full usage and configuration.
 
 ---
 
@@ -37,16 +38,17 @@ A Helm chart for deploying the Iceberg REST Catalog Fixture with optional Postgr
   - Resource and service configuration.
 - **Quick Install:**
   ```sh
-  helm repo add demir-open-source <your-helm-repo-url>
-  helm install my-iceberg-rest demir-open-source/iceberg-rest-fixture
+  helm repo add iceberg-rest-fixture https://ahmetfurkandemir.github.io/charts/demir-open-source/iceberg-rest-fixture/
+
+  helm upgrade --install iceberg-rest-fixture iceberg-rest-fixture/iceberg-rest-fixture --version 0.1.0 -n iceberg-rest-fixture --create-namespace
   ```
-- **Documentation:** See [`iceberg-rest-fixture/README.md`](./iceberg-rest-fixture/README.md) for full usage and configuration.
+- **Documentation:** See [`iceberg-rest-fixture/README.md`](demir-open-source/iceberg-rest-fixture/README.md) for full usage and configuration.
 
 ---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
