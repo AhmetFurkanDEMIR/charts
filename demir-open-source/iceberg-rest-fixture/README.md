@@ -1,5 +1,7 @@
 # iceberg-rest-fixture Helm Chart
 
+![](https://iceberg.apache.org/assets/images/Iceberg-logo.svg)
+
 This Helm chart deploys the **Iceberg REST Fixture** application along with an optional PostgreSQL dependency. The chart is designed for Kubernetes environments and supports S3-compatible storage backends.
 
 ---
