@@ -8,7 +8,7 @@ This repository contains open source Helm charts maintained by Ahmet Furkan Demi
 
 ### 1. Apache Ranger
 
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/apache-ranger)](https://artifacthub.io/packages/search?repo=apache-ranger)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/apache-ranger)](https://artifacthub.io/packages/helm/apache-ranger/apache-ranger)
 
 A Helm chart for deploying [Apache Ranger](https://ranger.apache.org/) on Kubernetes.
 
@@ -30,7 +30,7 @@ A Helm chart for deploying [Apache Ranger](https://ranger.apache.org/) on Kubern
 
 ### 2. Iceberg REST Fixture
 
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/iceberg-rest-fixture)](https://artifacthub.io/packages/search?repo=iceberg-rest-fixture)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/iceberg-rest-fixture)](https://artifacthub.io/packages/helm/iceberg-rest-fixture/iceberg-rest)
 
 A Helm chart for deploying the Iceberg REST Catalog Fixture with optional PostgreSQL and S3-compatible storage.
 

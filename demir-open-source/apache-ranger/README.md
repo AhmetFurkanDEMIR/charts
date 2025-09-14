@@ -1,6 +1,6 @@
 # Apache Ranger Helm Chart
 
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/apache-ranger)](https://artifacthub.io/packages/search?repo=apache-ranger)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/apache-ranger)](https://artifacthub.io/packages/helm/apache-ranger/apache-ranger)
 
 ![](https://ranger.apache.org/ranger-logo.svg)
 

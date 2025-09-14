@@ -1,6 +1,6 @@
 # iceberg-rest-fixture Helm Chart
 
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/iceberg-rest-fixture)](https://artifacthub.io/packages/search?repo=iceberg-rest-fixture)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/iceberg-rest-fixture)](https://artifacthub.io/packages/helm/iceberg-rest-fixture/iceberg-rest)
 
 ![](https://iceberg.apache.org/assets/images/Iceberg-logo.svg)
 
