@@ -1,5 +1,7 @@
 # Apache Ranger Helm Chart
 
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/apache-ranger)](https://artifacthub.io/packages/search?repo=apache-ranger)
+
 ![](https://ranger.apache.org/ranger-logo.svg)
 
 This Helm chart deploys [Apache Ranger](https://ranger.apache.org/) with a Bitnami PostgreSQL dependency on Kubernetes. It is designed for easy configuration, production readiness, and extensibility.
