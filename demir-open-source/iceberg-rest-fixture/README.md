@@ -21,7 +21,7 @@ This Helm chart deploys the **Iceberg REST Fixture** application along with an o
 ```sh
 helm repo add iceberg-rest-fixture https://ahmetfurkandemir.github.io/charts/demir-open-source/iceberg-rest-fixture/
 
-helm upgrade --install iceberg-rest-fixture iceberg-rest-fixture/iceberg-rest-fixture --version 0.1.0 -n iceberg-rest-fixture --create-namespace
+helm upgrade --install iceberg-rest-fixture iceberg-rest-fixture/iceberg-rest --version 0.0.1 -n iceberg-rest-fixture --create-namespace
 ```
 
 ---
